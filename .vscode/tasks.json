@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Streamlit: Run OCR App",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\streamlit.exe",
+      "args": ["run", "app.py"],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONIOENCODING": "utf-8"
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": false,
+        "showReuseMessage": false,
+        "focus": false,
+        "echo": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "EasyOCR: Pre-download models (vi+en)",
+      "type": "shell",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-c",
+        "import easyocr; easyocr.Reader(['vi','en'], gpu=False); print('Models ready')"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONIOENCODING": "utf-8"
+        }
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "showReuseMessage": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

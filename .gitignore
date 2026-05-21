@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Streamlit
+.streamlit/credentials.toml
+.streamlit/secrets.toml
+
+# EasyOCR cached models (nếu lỡ chạy ở project dir)
+.EasyOCR/
+
+# Temp
+*.log
+*.tmp
