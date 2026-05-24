@@ -40,6 +40,18 @@ python -c "import easyocr; easyocr.Reader(['vi','en'], gpu=False)"
 Lỗi hay gặp: nếu rename/move folder rồi venv báo `Fatal error in launcher`,
 xóa `.venv/` và làm lại từ bước `python -m venv`.
 
+### Chạy bằng VS Code
+
+Project đã có sẵn `.vscode/tasks.json` và `.vscode/settings.json`, nên xài VS Code rất nhanh:
+
+1. Cài [VS Code](https://code.visualstudio.com/) + extension **Python** (ms-python.python).
+2. `code .` (hoặc File → Open Folder → chọn `ocr-app`).
+3. Lần đầu, mở Command Palette (`Ctrl+Shift+P`) → **Python: Select Interpreter** → chọn `.\.venv\Scripts\python.exe`.
+4. Tạo venv + cài deps theo các bước phía trên (mở terminal VS Code bằng `` Ctrl+` ``).
+5. Bấm **`Ctrl+Shift+B`** để chạy task mặc định `Streamlit: Run OCR App` — app sẽ start ngay, không phải gõ lệnh.
+
+Task phụ: `Ctrl+Shift+P` → **Tasks: Run Task** → `EasyOCR: Pre-download models (vi+en)` để tải model trước.
+
 ## Các thư viện chính
 
 App dùng **EasyOCR** làm engine nhận dạng. EasyOCR thực ra là pipeline 2 model
