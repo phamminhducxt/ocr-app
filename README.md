@@ -4,9 +4,9 @@ App là một trang web nhỏ chạy bằng Streamlit, cho phép tải ảnh ho�
 
 ## Cài đặt và chạy
 
-Yêu cầu: **Python 3.10+**, Git, ~3GB ổ cứng (torch + EasyOCR models).
+Yêu cầu: **Python 3.10+**, Git, [VS Code](https://code.visualstudio.com/) + extension **Python** (ms-python.python), ~3GB ổ cứng (torch + EasyOCR models).
 
-Clone và tạo môi trường ảo:
+### Setup lần đầu
 
 ```bash
 git clone https://github.com/phamminhducxt/ocr-app.git
@@ -24,33 +24,17 @@ Cài thư viện (lần đầu ~5–10 phút vì kéo torch ~2GB):
 pip install -r requirements.txt
 ```
 
-Chạy app:
-
-```bash
-streamlit run app.py
-```
-
-Browser sẽ tự mở `http://localhost:8501`. Lần đầu OCR, EasyOCR tải model
-về `~/.EasyOCR/model/` (~64MB/ngôn ngữ). Muốn pre-download trước cho đỡ chờ:
-
-```bash
-python -c "import easyocr; easyocr.Reader(['vi','en'], gpu=False)"
-```
-
-Lỗi hay gặp: nếu rename/move folder rồi venv báo `Fatal error in launcher`,
-xóa `.venv/` và làm lại từ bước `python -m venv`.
-
 ### Chạy bằng VS Code
 
-Project đã có sẵn `.vscode/tasks.json` và `.vscode/settings.json`, nên xài VS Code rất nhanh:
+Project có sẵn `.vscode/tasks.json` + `settings.json`:
 
-1. Cài [VS Code](https://code.visualstudio.com/) + extension **Python** (ms-python.python).
-2. `code .` (hoặc File → Open Folder → chọn `ocr-app`).
-3. Lần đầu, mở Command Palette (`Ctrl+Shift+P`) → **Python: Select Interpreter** → chọn `.\.venv\Scripts\python.exe`.
-4. Tạo venv + cài deps theo các bước phía trên (mở terminal VS Code bằng `` Ctrl+` ``).
-5. Bấm **`Ctrl+Shift+B`** để chạy task mặc định `Streamlit: Run OCR App` — app sẽ start ngay, không phải gõ lệnh.
+1. Mở folder: `code .` (hoặc File → Open Folder → `ocr-app`).
+2. Lần đầu: `Ctrl+Shift+P` → **Python: Select Interpreter** → chọn `.\.venv\Scripts\python.exe`.
+3. Bấm **`Ctrl+Shift+B`** → task `Streamlit: Run OCR App` chạy ngay, browser tự mở `http://localhost:8501`.
 
-Task phụ: `Ctrl+Shift+P` → **Tasks: Run Task** → `EasyOCR: Pre-download models (vi+en)` để tải model trước.
+Task phụ: `Ctrl+Shift+P` → **Tasks: Run Task** → `EasyOCR: Pre-download models (vi+en)` để tải model trước cho đỡ chờ ở lần OCR đầu (~64MB/ngôn ngữ, lưu vào `~/.EasyOCR/model/`).
+
+Lỗi hay gặp: sau khi rename/move folder, venv báo `Fatal error in launcher` → xóa `.venv/` và làm lại từ bước `python -m venv`.
 
 ## Các thư viện chính
 
