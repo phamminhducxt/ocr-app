@@ -4,17 +4,41 @@ App là một trang web nhỏ chạy bằng Streamlit, cho phép tải ảnh ho�
 
 ## Cài đặt và chạy
 
-Tạo môi trường ảo rồi cài thư viện:
+Yêu cầu: **Python 3.10+**, Git, ~3GB ổ cứng (torch + EasyOCR models).
 
-```powershell
+Clone và tạo môi trường ảo:
+
+```bash
+git clone https://github.com/phamminhducxt/ocr-app.git
+cd ocr-app
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+```
+
+Activate venv:
+- **Windows (PowerShell):** `.\.venv\Scripts\Activate.ps1`
+- **macOS / Linux:** `source .venv/bin/activate`
+
+Cài thư viện (lần đầu ~5–10 phút vì kéo torch ~2GB):
+
+```bash
 pip install -r requirements.txt
+```
+
+Chạy app:
+
+```bash
 streamlit run app.py
 ```
 
-Lần đầu chạy, EasyOCR sẽ tải model về 
-Sau đó, browser sẽ tự mở `http://localhost:8501`.
+Browser sẽ tự mở `http://localhost:8501`. Lần đầu OCR, EasyOCR tải model
+về `~/.EasyOCR/model/` (~64MB/ngôn ngữ). Muốn pre-download trước cho đỡ chờ:
+
+```bash
+python -c "import easyocr; easyocr.Reader(['vi','en'], gpu=False)"
+```
+
+Lỗi hay gặp: nếu rename/move folder rồi venv báo `Fatal error in launcher`,
+xóa `.venv/` và làm lại từ bước `python -m venv`.
 
 ## Các thư viện chính
 
