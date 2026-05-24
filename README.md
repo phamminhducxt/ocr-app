@@ -4,9 +4,9 @@ App là một trang web nhỏ chạy bằng Streamlit, cho phép tải ảnh ho�
 
 ## Cài đặt và chạy
 
-Yêu cầu: **Python 3.10+**, Git, [VS Code](https://code.visualstudio.com/) + extension **Python** (ms-python.python), ~3GB ổ cứng (torch + EasyOCR models).
+Yêu cầu: **Python 3.10+**, Git, VS Code + extension **Python** (ms-python.python).
 
-### Setup lần đầu
+### Setup 
 
 ```bash
 git clone https://github.com/phamminhducxt/ocr-app.git
@@ -18,7 +18,7 @@ Activate venv:
 - **Windows (PowerShell):** `.\.venv\Scripts\Activate.ps1`
 - **macOS / Linux:** `source .venv/bin/activate`
 
-Cài thư viện (lần đầu ~5–10 phút vì kéo torch ~2GB):
+Cài thư viện:
 
 ```bash
 pip install -r requirements.txt
