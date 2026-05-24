@@ -1,4 +1,4 @@
-# App OCR - đồ án thực tập (Phạm Minh Đức)
+# App OCR - thực tập (Phạm Minh Đức)
 # Dùng EasyOCR đọc chữ, Streamlit làm UI, PyMuPDF để render PDF
 import io
 import sys
